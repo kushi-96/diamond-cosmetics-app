@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { ProductPagination } from 'components/molecules'
 import { Loader } from 'components/atoms';
 
+
 export interface IProductCategory {
   id: number;
   name: string;
@@ -29,13 +30,12 @@ export const Home = () => {
   const [currentPage, setCurrentPage] = useState(0);
 
   const handlePageChange = (newPage: number) => {
-    console.log(newPage, 'new');
     setPage(newPage);
     setCurrentPage(newPage);
   };
 
   useEffect(() => {
-    console.log('Current Page Changed:', page);
+
   }, [page])
 
 
@@ -44,8 +44,8 @@ export const Home = () => {
       <div>
         <img src={banner} alt='gt' className='w-full h-[250px] rounded-sm object-fill' />
       </div>
-      <div className="pb-10 text-lg font-bold mt-7 mb-2 px-10 display: flex; justify-content: center; align-items: center;">
-        Our Products
+      <div className="pb-10 text-lg font-bold mt-7 mb-2 px-10 ">
+        Our  Best Sellers
       </div>
       {isLoading ? <Loader /> : (<div className='grid px-10 gap-7 grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
         {data && data?.data?.map((product: IProduct, idx: number) => (

@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import CN from 'classnames'
 import logo from 'assets/images/logo.png'
+import { Link } from 'react-router-dom';
 
 export interface HeaderProps {
   [x: string]: any
@@ -19,15 +20,17 @@ export const Header: FC<HeaderProps> = ({
 
   return (
     <header className={HeaderClasses} {...restProps}>
-      <div>
+      <Link to="/">
         <img src={logo} alt='gt' className='w-fit h-[55px]' />
-      </div>
-
+      </Link>
       {/* for desktop */}
       <div className='hidden justify-end items-center gap-x-6 lg:flex md:flex'>
-        <span className='text-[16px] text-white'>About Us</span>
-        <span className='text-[16px] text-white'>Products</span>
-        <span className='text-[16px] text-white'>Contact Us</span>
+        <Link to="/">
+          <span className='text-[14px] text-white'>About Us</span></Link>
+        <Link to="/">
+          <span className='text-[14px] text-white'>Products</span></Link>
+        <Link to="/">
+          <span className='text-[14px] text-white'>Contact Us</span></Link>
         <i className='ri-shopping-cart-line text-white text-[18px] pl-10' />
       </div>
 
